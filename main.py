@@ -1,4 +1,4 @@
-from django.db.models.query import QuerySet
+from django.db.models import QuerySet
 
 from db.models import Actor, Genre
 
@@ -10,9 +10,6 @@ def main() -> QuerySet:
         ("Dramma",),
     ]
 
-    for name, in genres:
-        Genre.objects.create(name=name)
-
     actors = [
         ("George", "Klooney"),
         ("Kianu", "Reaves"),
@@ -21,6 +18,9 @@ def main() -> QuerySet:
         ("Jaden", "Smith"),
         ("Scarlett", "Johansson"),
     ]
+
+    for name, in genres:
+        Genre.objects.create(name=name)
 
     for first_name, last_name in actors:
         Actor.objects.create(
